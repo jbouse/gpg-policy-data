@@ -1,0 +1,27 @@
+#!/bin/sh
+
+DATE=$1
+
+if [ -z $DATE ]
+then
+	echo "$0 <DATE>"
+	exit
+fi
+
+if [ -f "policy.$DATE" ]
+then
+	for KEY in $(grep ^pub policy.${DATE} |grep -v revoked: |awk '{print$2}'|awk -F/ '{print $2}'|xargs)
+	do
+		if [ ! -f "policy.$DATE.$KEY.sig" ]
+		then
+			gpg -qbu ${KEY}! policy.${DATE}
+			if [ -f "policy.$DATE.asc" ]
+			then
+				mv policy.${DATE}.asc policy.${DATE}.${KEY}.sig
+				gpg --verify policy.${DATE}.${KEY}.sig policy.${DATE}
+			else
+				echo "Bad signature for $KEY"
+			fi
+		fi
+	done
+fi

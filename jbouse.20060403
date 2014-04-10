@@ -1,0 +1,69 @@
+Usage Policies for OpenPGP Keys						v1.0
+
+	As keys collect signatures in the course of their lifetime I will 
+only publish the fingerprints within this document as the keys and signatures
+should always be available on the public key servers.
+
+My Old general purpose key:
+
+pub  1024D/3DC9F946 1999-11-30 Jeremy T. Bouse <jbouse -at- debian.org>
+     Key fingerprint = 1319 D7E5 12DE 640C 1B14  39A9 21C2 5754 3DC9 F946
+uid                            Jeremy T. Bouse (JB5713) <undrgrid -at- undergrid.net>
+
+	This policy document does not apply to this key as the use of this
+general purpose key has been retired in favor of the new keys below.
+
+
+My Debian primary key:
+
+pub  1024D/29AB4CDD 2002-03-27 Jeremy T. Bouse (Debian Maintainer Key) <jbouse -at- debian.org>
+     Key fingerprint = C745 FA35 27B4 32A6 91B3  3935 D573 D5B1 29AB 4CDD
+     
+
+My Personal primary key:
+
+pub  1024D/62DBDF62 2002-03-27 Jeremy T. Bouse <Jeremy.Bouse -at- UnderGrid.net>
+     Key fingerprint = E636 AB22 DC87 CD52 A3A4  D809 544C 4868 62DB DF62
+
+
+My Work primary key:
+
+pub  1024D/6D2112AA 2002-04-11 Jeremy T. Bouse (NTT Multimedia Communications Laboratories, Inc.) <jeremy -at- nttmcl.com>
+     Key fingerprint = 2A06 920A 30F6 02EF AD1B  89B0 5499 EB87 6D21 12AA
+
+
+	Primary keys are stored offline on an encrypted removable 
+media with multi-word pass phrases making use of mixed alphanumerics. This
+removable media is stored in a fire safe along with a CDROM containing the
+revocation certificates for all keys and a hardcopy print-out of each 
+recovation certificate. This key is only removed from storage when needed
+to sign a key or management of subkeys.
+
+	Subkeys for each of the primary keys are stored on an encrypted USB
+flash drive with multi-word pass phrases making use of mixed alphanumerics
+and kept on my person at all times. These keys are not stored on any machine
+and accessed only from the encrypted USB flash drive. Subkeys shall have a
+lifetime of no more than 30 months enforced via an expiration date at which
+time a new subkey shall be generated using the primary key.
+
+	Signatures made by these keys later than the posted date of this
+policy document are only considered valid if they contain a policy URL of
+the form:
+	http://undergrid.net/~undrgrid/legal/gpg/<name>.<date>?md5sum=<md5>
+	<name> is the name of the policy
+	<date> is the date the policy was issued
+	<md5> is the md5 has of the policy document
+
+	A valid policy document will have clearsigned signature files by
+all the primary keys at a URL of the form:
+	http://undergrid.net/~undrgrid/legal/gpg/<name>.<date>.<key>.sign
+	<name> is the name of the policy
+	<date> is the date the policy was issued
+	<key> is the Key ID of the primary key
+
+Location of this document:
+http://undergrid.net/~undrgrid/legal/gpg/policy.20060403
+
+Version History:
+20060403 - Revised URI location of policy
+20030811 - Initial publication of policy

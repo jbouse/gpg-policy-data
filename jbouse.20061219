@@ -1,0 +1,97 @@
+Usage Policies for OpenPGP Keys						v1.1
+
+	As keys collect signatures in the course of their lifetime I will 
+only publish the fingerprints within this document as the keys and signatures
+should always be available on the public key servers.
+
+My Old retired pre-policy key:
+
+pub   1024D/3DC9F946 1999-11-30 [revoked: 2006-04-04]
+      Key fingerprint = 1319 D7E5 12DE 640C 1B14  39A9 21C2 5754 3DC9 F946
+uid                  Jeremy T. Bouse <jbouse -at- debian.org>
+uid                  Jeremy T. Bouse (JB5713) <undrgrid -at- undergrid.net>
+
+	This policy document does not apply to this key as the use of this
+general purpose key has been retired in favor of the new keys below.
+
+
+My Old retired primary keys:
+
+pub   1024D/6D2112AA 2002-04-11 [revoked: 2006-12-19]
+      Key fingerprint = 2A06 920A 30F6 02EF AD1B  89B0 5499 EB87 6D21 12AA
+uid                  Jeremy T. Bouse (NTT Multimedia Communications Laboratories, Inc.) <jeremy -at- nttmcl.com>
+
+	These retired keys should have properly authenticated revocation 
+certificates submitted to the keyservers. If you have these keys in your 
+keyring please refresh them.
+
+
+My Debian primary key:
+
+pub   1024D/29AB4CDD 2002-03-27
+      Key fingerprint = C745 FA35 27B4 32A6 91B3  3935 D573 D5B1 29AB 4CDD
+uid                  Jeremy T. Bouse (Debian Maintainer Key) <jbouse -at- debian.org>
+     
+	This key is used solely for works pertaining to the Debian GNU/Linux
+Project and my duties as a Debian Developer.
+
+
+My Personal primary key:
+
+pub   1024D/62DBDF62 2002-03-27
+      Key fingerprint = E636 AB22 DC87 CD52 A3A4  D809 544C 4868 62DB DF62
+uid                  Jeremy T. Bouse <Jeremy.Bouse -at- UnderGrid.net>
+
+	This key is used for all personal work related to personal and
+personal consulting business through UnderGrid Network Services or other
+personal ventures.
+
+
+My Work primary key:
+
+pub   1024D/E5F96419 2006-12-05
+      Key fingerprint = 251C 4788 715A 46F1 9B5F  163F E1D9 8596 E5F9 6419
+uid                  Jeremy T. Bouse (Reflex Security, Inc.) <jeremy.bouse -at- reflexsecurity.com>
+
+	This key is used solely for work pertaining to my employment with
+Reflex Security, Inc.
+
+
+	Primary keys are stored offline on an encrypted removable storage
+media with multi-word pass phrases making use of mixed alphanumerics. This
+removable media is stored in a fire safe along with a CD-ROM containing the
+revocation certificates for all keys and a hard copy print-out of each 
+revocation certificate. This key is only removed from storage when needed
+to sign a key or management of subkeys.
+
+	Subkeys for each of the primary keys are stored on an encrypted USB
+flash drive with multi-word pass phrases making use of mixed alphanumerics
+and kept on my person at all times. These keys are not stored on any machine
+and accessed only from the encrypted USB flash drive. Subkeys shall have a
+lifetime of no more than 30 months enforced via an expiration date at which
+time a new subkey shall be generated using the primary key.
+
+	Signatures made by these keys later than the posted date of this
+policy document are only considered valid if they contain a policy URL of
+the form:
+	http://undergrid.net/legal/gpg/<name>.<date>?md5sum=<md5>
+	<name> is the name of the policy
+	<date> is the date the policy was issued
+	<md5> is the md5 has of the policy document
+
+	A valid policy document will have clear-signed signature files by
+all current primary keys at a URL of the form:
+	http://undergrid.net/legal/gpg/<name>.<date>.<key>.sign
+	<name> is the name of the policy
+	<date> is the date the policy was issued
+	<key> is the Key ID of the primary key
+
+Location of this document:
+http://undergrid.net/legal/gpg/policy.20061219
+
+Version History:
+20061219 - Updated primary and retired keys
+           Included primary usage of specific keys
+           Revised URI location of policy
+20060403 - Revised URI location of policy
+20030811 - Initial publication of policy

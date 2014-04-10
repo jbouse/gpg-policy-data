@@ -1,0 +1,52 @@
+Jeremy T. Bouse OpenPGP Key Transition Announcement
+
+Issued: December 23, 2011
+
+
+I am going to replace my current DSA OpenPGP keys with new RSA OpenPGP keys.
+
+The current DSA keys are not to be considered compromised. They will remain my
+official keys for regular communications until the new ones are well connected
+(more than 20 certifications and MSD < 4.3). When this condition is met, the
+new RSA keys become my offical keys and a 3-month expiration period is set for
+the DSA keys.
+
+The keys are cross-certified and this document is signed by both the current
+and new keys.
+
+The new keys are available on public keyservers. My preferred keyserver is
+pool.sks-keyservers.net. If you use the 'no-honor-keyserver-url' GnuPG option
+(or equivalent option in other OpenPGP software), please make sure to use an
+up-to-date keyserver. Many keyservers are still using very old and buggy
+releases of PKS software and do not correctly handle keys with multiple subkeys.
+The keyservers that can handle multiple subkeys are summarized on
+sks-keyservers.net. Consider setting pool.sks-keyservers.net as your default
+keyserver and add the 'repair-pks-subkey-bug' option to your GnuPG configuration.
+
+
+Current DSA keys:
+
+pub   1024D/62DBDF62 2002-03-27
+      Key fingerprint = E636 AB22 DC87 CD52 A3A4  D809 544C 4868 62DB DF62
+uid                  Jeremy T. Bouse <Jeremy.Bouse(%)UnderGrid.net>
+
+pub   1024D/29AB4CDD 2002-03-27
+      Key fingerprint = C745 FA35 27B4 32A6 91B3  3935 D573 D5B1 29AB 4CDD
+uid                  Jeremy T. Bouse (Debian Maintainer Key) <jbouse(%)debian.org>
+
+
+New RSA Keys:
+
+pub   4096R/4FADF197 2011-12-23
+      Key fingerprint = 09C5 AB71 078F 4ACD 235B  28E5 FFCE 1C9A 4FAD F197
+uid                  Jeremy T. Bouse (Debian Developer) <jbouse@debian.org>
+
+pub   4096R/D01E190C 2011-12-23
+      Key fingerprint = 653C 947B 2C05 481E 8A0A  9927 15D0 A62E D01E 190C
+uid                  Jeremy T. Bouse <jeremy.bouse@undergrid.net>
+
+
+Signature of this document
+
+    This document will have detached signatures for all master keys covered
+under this transition policy.
