@@ -25,5 +25,7 @@ then
 			fi
 		fi
 	done
-	
+	md5sum ${POLICY} >> md5sums
+	sha1sum ${POLICY} >> sha1sums
+	sha256sum ${POLICY} >> sha256sums
 fi
