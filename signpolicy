@@ -1,6 +1,7 @@
 #!/bin/sh
 
 DATE=$1
+POLICY="${USER}.${DATE}"
 
 if [ -z $DATE ]
 then
@@ -8,20 +9,21 @@ then
 	exit
 fi
 
-if [ -f "policy.$DATE" ]
+if [ -f $POLICY ]
 then
-	for KEY in $(grep ^pub policy.${DATE} |grep -v revoked: |awk '{print$2}'|awk -F/ '{print $2}'|xargs)
+	for KEY in $(grep ^pub ${POLICY} |grep -v revoked: |awk '{print$2}'|awk -F/ '{print $2}'|xargs)
 	do
-		if [ ! -f "policy.$DATE.$KEY.sig" ]
+		if [ ! -f "$POLICY.$KEY.sig" ]
 		then
-			gpg -qbu ${KEY}! policy.${DATE}
-			if [ -f "policy.$DATE.asc" ]
+			gpg -qbu ${KEY}! ${POLICY}
+			if [ -f "$POLICY.asc" ]
 			then
-				mv policy.${DATE}.asc policy.${DATE}.${KEY}.sig
-				gpg --verify policy.${DATE}.${KEY}.sig policy.${DATE}
+				mv ${POLICY}.asc ${POLICY}.${KEY}.sig
+				gpg --verify ${POLICY}.${KEY}.sig ${POLICY}
 			else
 				echo "Bad signature for $KEY"
 			fi
 		fi
 	done
+	
 fi
