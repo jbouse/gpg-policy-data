@@ -17,7 +17,7 @@ function valid_gpg_license() {
 		return (sha1($data) == GpG_L1c3Ns3_K3y);
 	else:
 		return ((sha1($data) == GpG_L1c3Ns3_K3y) && 
-			(GpG_APP_VER_MAJOR <= GpG_L1c3Ns3_V3r));
+			(GPG_APP_VER_MAJOR <= GpG_L1c3Ns3_V3r));
 	endif;
 	return false;
 }
