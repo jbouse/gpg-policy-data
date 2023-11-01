@@ -15,7 +15,6 @@ if [ -f $POLICY ]
 then
 	for KEY in $(grep ^pub ${POLICY} |grep -v revoked: |awk '{print $2}' |awk -F/ '{print $2}' |xargs)
 	do
-		# FP=${KEY:(-8)}
 		if [ ! -f "${POLICY}.${KEY:(-8)}.sig" ]
 		then
 			$GPG -qbu ${KEY}! ${POLICY}

@@ -20,8 +20,12 @@ pub   rsa4096/0xA2027AE963D6DD0F 2021-11-09
       Key fingerprint = 4219 E839 44D6 2AC4 979C  6041 A202 7AE9 63D6 DD0F
 uid                              Jeremy T. Bouse <jbouse@advisorengine.com>
 
+
 The following keys are retired:
 
+pub   rsa4096/0x7404106F4114CAC1 2014-04-08 [revoked: 2021-06-15]
+      Key fingerprint = 6604 903B 408F 9F96 B082  21E4 7404 106F 4114 CAC1
+uid                              Jeremy T. Bouse (Cox Media Group) <jeremy.bouse@coxinc.com>
 
 
 This policy conforms to generally accepted security principles and practices of
