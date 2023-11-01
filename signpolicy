@@ -1,7 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 
 DATE=$1
 POLICY="${USER}.${DATE}"
+GPG=${GPGBIN:=gpg}
 
 if [ -z $DATE ]
 then
@@ -10,19 +11,23 @@ then
 fi
 
 if [ -f $POLICY ]
+	echo "Policy $POLICY found"
 then
 	for KEY in $(grep ^pub ${POLICY} |grep -v revoked: |awk '{print $2}' |awk -F/ '{print $2}' |xargs)
 	do
-		if [ ! -f "$POLICY.$KEY.sig" ]
+		# FP=${KEY:(-8)}
+		if [ ! -f "${POLICY}.${KEY:(-8)}.sig" ]
 		then
-			gpg -qbu ${KEY}! ${POLICY}
+			$GPG -qbu ${KEY}! ${POLICY}
 			if [ -f "$POLICY.asc" ]
 			then
-				mv ${POLICY}.asc ${POLICY}.${KEY}.sig
-				gpg --verify ${POLICY}.${KEY}.sig ${POLICY}
+				mv ${POLICY}.asc ${POLICY}.${KEY:(-8)}.sig
+				$GPG --verify ${POLICY}.${KEY:(-8)}.sig ${POLICY}
 			else
 				echo "Bad signature for $KEY"
 			fi
+		else
+			$GPG --verify ${POLICY}.${KEY:(-8)}.sig ${POLICY}
 		fi
 	done
 	md5sum ${POLICY} >> md5sums
