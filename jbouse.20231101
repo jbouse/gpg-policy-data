@@ -20,6 +20,10 @@ pub   rsa4096/0xA2027AE963D6DD0F 2021-11-09
       Key fingerprint = 4219 E839 44D6 2AC4 979C  6041 A202 7AE9 63D6 DD0F
 uid                              Jeremy T. Bouse <jbouse@advisorengine.com>
 
+The following keys are retired:
+
+
+
 This policy conforms to generally accepted security principles and practices of
 the OpenPGP users community.
 
