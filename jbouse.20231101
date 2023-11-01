@@ -1,0 +1,184 @@
+Jeremy T. Bouse OpenPGP Key Usage Policy
+
+Issued: November 1, 2023
+
+
+Preamble
+
+This document is valid from Nov  1, 2023 and establishes the usage and security
+policy, along with all key certifications, for the following keys:
+
+pub   rsa4096/0xFFCE1C9A4FADF197 2011-12-23
+      Key fingerprint = 09C5 AB71 078F 4ACD 235B  28E5 FFCE 1C9A 4FAD F197
+uid                              Jeremy T. Bouse (Debian Developer) <jbouse@debian.org>
+
+pub   rsa4096/0x15D0A62ED01E190C 2011-12-23
+      Key fingerprint = 653C 947B 2C05 481E 8A0A  9927 15D0 A62E D01E 190C
+uid                              Jeremy T. Bouse <jeremy.bouse@undergrid.net>
+
+pub   rsa4096/0xA2027AE963D6DD0F 2021-11-09
+      Key fingerprint = 4219 E839 44D6 2AC4 979C  6041 A202 7AE9 63D6 DD0F
+uid                              Jeremy T. Bouse <jbouse@advisorengine.com>
+
+This policy conforms to generally accepted security principles and practices of
+the OpenPGP users community.
+
+
+Key Components
+
+- The primary ("Master") keys:
+
+The master keys are high-security sign-and-certify 4096 bit RSA key, on a clean
+GNU/Linux system using the current gnupg version available.
+
+The secret part of the master keys are stored on an encrypted removable media.
+A backup copy is made using Shamir Secret Sharing and stored in several secure
+locations both on-line and off-line. The main copy is kept secure in a fire safe
+along with a copy of the revocation certificate stored on WORM media and a hard
+copy print-out. Both copies are protected with a strong passphrase.
+
+The master keys have no expiration and are only used for:
+
+1. collect other people's certifications;
+2. certify other people's keys, following the policy established in my key
+   certification policy;
+3. sign usage and certification policies, certification notes and other key
+   management related documents;
+4. generate, renew, revoke and self-certify User IDs and subkeys bound to the
+   master keys.
+
+The master keys are, of course, immediately revoked in the case of loss, theft
+or suspected compromise of the secret key.
+
+- The subkeys:
+
+Two or more subkeys (at least one signing key, one encryption key) are bound to
+the master key. These subkeys are used for signature and encryption operations
+in everyday communications. Authentication keys are used with SSH communications.
+
+Subkeys are no less than 3072 bits RSA or ECC and have an expiration period of two years,
+renewed every two years if the secrecy and integrity of the subkey is not suspected
+to be compromised. The subkeys are generated and stored on either OpenPGP v2 smartcards
+or Yubikey 5 hardware tokens.
+
+Subkeys are, of course, immediately revoked in case of loss, theft or suspected
+compomise of the secret key.
+
+- The User IDs:
+
+The keys are currently bound to these User IDs:
+
+Jeremy T. Bouse <jeremy.bouse(%)undergrid.net>
+
+    This e-mail address is used for regular communication.
+
+Jeremy T. Bouse (Debian Developer) <jbouse(%)debian.org>
+
+    This e-mail address is used for formal communications with the Debian Project
+
+Jeremy T. Bouse <jbouse(%)advisorengine.com>
+
+    This e-mail address is used for formal communications with my employment with Advisor Engine
+
+
+Key preferences
+
+- Preferred keyservers:
+
+My preferred keyserver is keys.openpgp.org. If you use the
+'no-honor-keyserver-url' GnuPG option (or equivalent option in other OpenPGP
+software), please make sure to use an up-to-date keyserver. Many keyservers are
+still using very old and buggy releases of PKS software and do not correctly
+handle keys with multiple subkeys. The keyservers that can handle multiple subkeys
+are summarized on sks-keyservers.net. Consider setting keys.openpgp.org
+as your default keyserver and add the 'repair-pks-subkey-bug' option to your
+GnuPG configuration.
+
+- Preferred algorithms:
+
+    Cipher: AES256, AES192, AES, CAST5, 3DES
+
+    Digest: SHA512, SHA384, SHA256, SHA224, SHA1
+
+    Compression: ZLIB, BZIP2, ZIP, Uncompressed
+
+
+Key certifications
+
+- Prerequisites for certification:
+
+The applicant (the key holder who wishes to obtain a key certification from me)
+must make his/her OpenPGP public key available on a publically accessible
+keyserver.
+
+The application should have prepared a strip of paper with a print-out of the
+output from:
+
+    gpg --fingerprint KEY-ID
+
+(or equivalent command if not using GnuPG), where KEY-ID is the key ID of the
+key that is to be certified. A hand-written sheet featuring all user IDs the
+applicant wants me to certify and the fingerprint will also be accepted, if
+clearly readable.
+
+By requesting the key certification, the applicant declares to know and approve
+this policy and generally accepted principles and practices of the OpenPGP users
+community and obliges himself/herself to take all reasonable precautions to
+prevent loss, disclosure or unauthorized use of his/her secret key(s) and to
+immediately revoke his/her public key in any case of loss or compromise of the
+secret key.
+
+The entire process of identity verification and certificate issuing is run on a
+voluntary, free of charge and best effort basis. Although I take all reasonable
+measures in verifying the applicant's identity and preventing compromise or
+misuse of my secret certification keys, I cannot grant any legal warranty nor
+guarantees.
+
+The OpenPGP Web of Trust follows he principle of reciprocity, so the applicant
+should be willing to cross-certify with me.
+
+- Identity verification:
+
+I never certify someone’s key without having met him or her in person.
+
+The applicant must prove his/her identity to me by way of a government ID card,
+a driver's licence, a passport or a similar document. The document must feature
+a photographic picture of the applicant.
+
+- The act of certification:
+
+At home, I will:
+
+1. import the applicant's key from a publically accessible keyserver;
+2. check if the key fingerprint matches the one I received from the applicant;
+3. include a cert-policy-url to this policy document with certification;
+4. certify the key using the caff utility. caff certifies each user ID separately
+   and sends the certified key in an encrypted email to each of them. Certificates
+   will not be sent to the keyservers, it's an applicant's responsibility to
+   update his/her key on the public keyservers.
+
+- Certification levels
+
+I will certify keys using these certification levels:
+
+Level 3 (key ownership has been carefully verified)
+    Used for sign-and-encrypt keys which successfully pass all the checks: I
+    have met the applicant in person and I have verified his/her identity card
+    and fingerprint and the applicant has successfully received and deciphered
+    the challenge/response test and sent the certified key to public keyservers.
+    These certifications are the strongest in the Web of Trust.
+
+Level 2 (key ownership has been casually verified)
+    Used when the applicant has only signing-keys and no encryption keys, where
+    the challenge/response test with caff was not possible. I reserve use this
+    certification level also when I'm not familiar with the kind of presented
+    document (i.e. foreign driver's licences, exotic countries passports or
+    documents with very old photo).
+
+Level 0 (Undefined)
+    Used to certify keys belonging not to persons but to groups or organisations.
+
+Signature of this document
+
+    This document will have detached signatures for all master keys covered
+under this policy.
